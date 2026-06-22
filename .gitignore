@@ -1,1 +1,4 @@
 settings.json
+/petss_data
+__pycache__
+*.txt

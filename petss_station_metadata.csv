@@ -1,0 +1,81 @@
+station_id,station_name,regions,aliases
+9462450,"NIKOLSKI, AK",nwak,nikolski
+9462620,"UNALASKA, AK",nwak,unalaska
+9463502,"PORT MOLLER, AK",nwak,port moller
+9464212,"VILLAGE COVE, AK",nwak,village;village cove
+9465056,Ptect-P-Nushagak-Bay-AK,nwak,ptect p;ptect p nushagak bay
+9465203,"NAKNEK, AK",nwak,naknek
+9465261,"CLARKS PT NUSHAGAK, AK",nwak,clarks point nushagak
+9465374,"DILLINGHAM, AK",nwak,dillingham
+9465396,Platinum-AK,nwak,platinum
+9465831,Quinhagak-AK,nwak,quinhagak
+9465911,"KWIGILLINGOK, AK",nwak,kwigillingok
+9465951,"KIPNUK, AK",nwak,kipnuk
+9465953,Kinak-Bay-AK,nwak,kinak;kinak bay
+9466012,E-Nunivak-Island-AK,nwak,e nunivak;e nunivak island
+9466079,"APOKAK CREEK ENT, AK",nwak,apokak;apokak creek entrance
+9466217,Mekoryuk-AK,nwak,mekoryuk
+9466298,Tooksook-Nelson-AK,nwak,toksook;toksook bay;toksook nelson;tooksook nelson
+9466931,Hooper-Bay-AK,nwak,hooper;hooper bay
+9467551,Nunam-Iqua-AK,nwak,nunam iqua
+9468039,NE-Cape-Lawrence-I-AK,nwak,ne cape lawrence island;ne lawrence
+9468132,"ST. MICHAEL NORTON SD,AK",nwak,st michael;st michael norton sound
+9468258,Savoonga-AK,nwak,savoonga
+9468333,"UNALAKLEET, AK",nwak,unalakleet
+9468691,"SHAKTOOLIK, AK",nwak,shaktoolik
+9468756,"NOME NORTON SOUND, AK",nwak,nome;nome norton sound
+9469237,Spencer-Pt-Clarence-AK,nwak,spencer point clarence
+9469338,Lost-River-AK,nwak,lost;lost river
+9469439,Tin-City-AK,nwak,tin city
+9469515,Wales-AK,nwak,wales
+9469751,"DEERING, AK",nwak,deering
+9469833,Goodhope-Bay-AK,nwak,good hope;good hope bay;goodhope;goodhope bay
+9469854,"SHISHMAREF INLET2, AK",nwak,shishmaref inlet2
+9490096,Cape-Espenberg-AK,nwak,cape espenberg;espenberg
+9490424,"KOTZEBUE, AK",nwak,kotzebue
+9490571,Cape-Krusenstern-AK,nwak,cape krusenstern;krusenstern
+9491094,"RED DOG DOCK, AK",nwak,red dog;red dog dock
+9491253,"KIVALINA, AK",nwak,kivalina
+9491873,Point-Hope-AK,nwak,point hope
+9497645,"PRUDHOE BAY, AK",nwak,prudhoe;prudhoe bay
+9499176,Kaktovik-AK,nwak,kaktovik
+ber0001,"POINT BARROW, AK",nwak,barrow;point barrow;utqiagvik
+ber0002,"PORT CLARENCE, AK",nwak,clarence;port clarence
+ber0003,"CAROLYN GOLOVNIN BAY, AK",nwak,carolyn golovnin;carolyn golovnin bay
+ber0004,"APOON MOUTH YUKON RV,AK",nwak,apoon mouth yukon river;apoon yukon
+ber0005,"KAWANAK PASS YUKON,AK",nwak,kawanak pass yukon;kawanak yukon
+ber0006,"KWIKLUAK PAS YUKON R, AK",nwak,kwikluak pas yukon;kwikluak pas yukon river
+ber0007,"CAPE ROMANZOF, AK",nwak,cape romanzof;romanzof
+ber0008,"ST. LRNCE NIYRAKPAK, AK",nwak,niyrakpak;st lawrence;st lawrence island;st lrnce niyrakpak
+ber0010,"POPOKAMUTE, AK",nwak,popokamute
+ber0011,"KUSKOKWAK CREEK ENT, AK",nwak,kuskokwak;kuskokwak creek entrance
+ber0012,"EEK CHANNEL QUINHAGA, AK",nwak,eek channel quinhaga;eek quinhaga
+ber0013,"GOODNEWS BAY ENT, AK",nwak,goodnews;goodnews bay entrance
+ber0014,"NAKNEK RIVER ENT#13, AK",nwak,naknek ent13;naknek river ent13
+ber0015,"EGEGIK RIVER ENT, AK",nwak,egegik;egegik river entrance
+ber0016,"PORT HEIDEN, AK",nwak,port heiden
+ber0017,Togiak-Ak,nwak,togiak
+ber0018,Kipnuk-Ak,nwak,kipnuk
+ber0019,Port-Heiden-AK,nwak,port heiden
+ber0020,Akutan-AK,nwak,akutan
+ber0021,Cape-Lisburne-Ak,nwak,cape lisburne;lisburne
+ber0022,Cold-Bay-AK,nwak,cold;cold bay
+ber0023,Diomede-AK,nwak,diomede
+ber0024,Elim-Ak,nwak,elim
+ber0025,False-Pass-AK,nwak,false;false pass
+ber0026,Kongiganak-AK,nwak,kongiganak
+ber0027,Koyuk-AK,nwak,koyuk
+ber0030,Newtok-AK,nwak,newtok
+ber0031,Paimiut-AK,nwak,paimiut
+ber0032,Pilot-Point-AK,nwak,pilot point
+ber0033,Point-Lay-AK,nwak,point lay
+ber0034,Saint-George-AK,nwak,saint george
+ber0035,Scammon-Bay-AK,nwak,scammon;scammon bay
+ber0036,Solomon-AK,nwak,solomon
+ber0037,Stebbins-AK,nwak,stebbins
+ber0038,Togiak-AK,nwak,togiak
+ber0039,Tununak-AK,nwak,tununak
+ber0040,Wainwright-AK,nwak,wainwright
+ber0041,Oliktok-AK,nwak,oliktok
+ber2307,"TUNUNAK, AK",nwak,tununak
+ber2308,"NELSON LAGOON, AK",nwak,nelson lagoon
