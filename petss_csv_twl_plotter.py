@@ -38,6 +38,7 @@ import re
 import subprocess
 import sys
 import tarfile
+import textwrap
 import unicodedata
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
@@ -45,6 +46,7 @@ from pathlib import Path
 from typing import Iterable
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
+from zoneinfo import ZoneInfo
 
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -113,6 +115,17 @@ class StationMaps:
     ambiguous_map: dict[str, list[str]]
     metadata: dict[str, dict]
     source: str = "fallback"
+
+
+@dataclass
+class DatumConversion:
+    station_id: str
+    vertical_datum: str = "MLLW"
+    mhhw_minus_mllw_ft: float | None = None
+    coops_station_id: str | None = None
+    coops_station_name: str | None = None
+    datum_epoch: str | None = None
+    source: str | None = None
 
 
 def normalize_name(value: str) -> str:
@@ -453,6 +466,187 @@ def resolve_station_id(
     )
 
 
+
+def load_datum_lookup(path: Path) -> pd.DataFrame:
+    """
+    Load a station datum lookup table.
+
+    Supported formats:
+
+    1. Output from build_petss_datum_lookup.py, with columns like:
+       station_id, mhhw_minus_mllw_ft, coops_station_id, datum_epoch, status
+
+    2. Master coastal-site spreadsheet, with columns like:
+       Station ID, Station Name, MHHW, MLLW, MSL, HAT, NWSLI, Obs?, Tide?
+
+    For the master spreadsheet, mhhw_minus_mllw_ft is computed as:
+
+       MHHW - MLLW
+
+    and this script then converts PETSS forecast values using:
+
+       value_MHHW = value_MLLW - (MHHW - MLLW)
+    """
+    raw = pd.read_csv(path, dtype=str)
+
+    # Preserve original names so we can support display metadata, then create
+    # a normalized lower/snake-ish set of column names for matching.
+    original_columns = list(raw.columns)
+    df = raw.copy()
+    df.columns = [
+        c.strip()
+        .lower()
+        .replace(" ", "_")
+        .replace("?", "")
+        .replace("/", "_")
+        .replace("-", "_")
+        for c in df.columns
+    ]
+
+    # Case 1: build_petss_datum_lookup.py output.
+    if {"station_id", "mhhw_minus_mllw_ft"}.issubset(df.columns):
+        if "status" in df.columns:
+            df = df[df["status"].astype(str).str.lower() == "ok"].copy()
+
+        df["station_id"] = df["station_id"].astype(str).str.strip()
+        df["mhhw_minus_mllw_ft"] = pd.to_numeric(df["mhhw_minus_mllw_ft"], errors="coerce")
+
+        # Normalize expected optional metadata columns.
+        if "coops_station_id" not in df.columns:
+            df["coops_station_id"] = df["station_id"]
+        if "coops_station_name" not in df.columns and "station_name" in df.columns:
+            df["coops_station_name"] = df["station_name"]
+        if "datum_epoch" not in df.columns:
+            df["datum_epoch"] = pd.NA
+
+    # Case 2: master spreadsheet.
+    elif {"station_id", "mhhw", "mllw"}.issubset(df.columns):
+        df["station_id"] = df["station_id"].astype(str).str.strip()
+        df["mhhw_ft"] = pd.to_numeric(df["mhhw"], errors="coerce")
+        df["mllw_ft"] = pd.to_numeric(df["mllw"], errors="coerce")
+        df["mhhw_minus_mllw_ft"] = df["mhhw_ft"] - df["mllw_ft"]
+
+        # Match the metadata names used downstream by get_datum_conversion().
+        df["coops_station_id"] = df["station_id"]
+        if "station_name" in df.columns:
+            df["coops_station_name"] = df["station_name"]
+        else:
+            df["coops_station_name"] = pd.NA
+
+        # The master spreadsheet may not include an epoch. Keep a column so the
+        # cleaned output has a consistent schema.
+        if "datum_epoch" not in df.columns:
+            df["datum_epoch"] = pd.NA
+
+    else:
+        raise ValueError(
+            "Datum lookup format not recognized. Expected either columns "
+            "station_id/mhhw_minus_mllw_ft or master-sheet columns "
+            "Station ID/MHHW/MLLW. Found columns: " + ", ".join(original_columns)
+        )
+
+    df = df.dropna(subset=["station_id", "mhhw_minus_mllw_ft"])
+    df = df.drop_duplicates(subset=["station_id"], keep="first")
+
+    if df.empty:
+        raise ValueError(f"No usable datum rows found in {path}")
+
+    return df.set_index("station_id")
+
+
+def get_datum_conversion(
+    *,
+    station_id: str,
+    vertical_datum: str,
+    datum_lookup_path: Path | None,
+) -> DatumConversion:
+    """
+    Return the vertical datum conversion for this station.
+
+    PETSS CSV values are assumed to be referenced to MLLW. If vertical_datum is
+    MHHW, the conversion applied later is:
+
+        value_MHHW = value_MLLW - (MHHW - MLLW)
+    """
+    requested = vertical_datum.upper()
+
+    if requested == "MLLW":
+        return DatumConversion(station_id=station_id, vertical_datum="MLLW", source="no conversion")
+
+    if requested != "MHHW":
+        raise ValueError("Only MLLW and MHHW are supported for --vertical-datum.")
+
+    if datum_lookup_path is None:
+        raise ValueError(
+            "--vertical-datum MHHW requires --datum-lookup pointing to a CSV "
+            "created by build_petss_datum_lookup.py."
+        )
+
+    lookup = load_datum_lookup(datum_lookup_path)
+    sid = str(station_id).strip()
+
+    if sid not in lookup.index:
+        raise ValueError(
+            f"No MHHW/MLLW datum lookup row found for station {sid} in {datum_lookup_path}. "
+            "Use --vertical-datum MLLW, add the station to the datum lookup, or run "
+            "build_petss_datum_lookup.py with --allow-name-match and review the result."
+        )
+
+    row = lookup.loc[sid]
+    if isinstance(row, pd.DataFrame):
+        row = row.iloc[0]
+
+    offset = pd.to_numeric(row["mhhw_minus_mllw_ft"], errors="coerce")
+    if pd.isna(offset):
+        raise ValueError(f"Datum row for station {sid} does not have a valid mhhw_minus_mllw_ft value.")
+
+    return DatumConversion(
+        station_id=sid,
+        vertical_datum="MHHW",
+        mhhw_minus_mllw_ft=float(offset),
+        coops_station_id=str(row.get("coops_station_id", "")) or None,
+        coops_station_name=str(row.get("coops_station_name", "")) or None,
+        datum_epoch=str(row.get("datum_epoch", "")) or None,
+        source=str(datum_lookup_path),
+    )
+
+
+def apply_vertical_datum_conversion(
+    df: pd.DataFrame,
+    conversion: DatumConversion,
+    *,
+    columns: tuple[str, ...] = ("TWL", "TWL10p", "TWL90p"),
+) -> pd.DataFrame:
+    """
+    Convert PETSS forecast water-level columns from MLLW to the requested datum.
+
+    For MHHW:
+        value_ft_MHHW = value_ft_MLLW - (MHHW_ft - MLLW_ft)
+
+    Tide/observation columns are intentionally not converted here because the
+    customer-facing graphic does not plot them and their datum basis should be
+    confirmed separately before transforming them.
+    """
+    out = df.copy()
+
+    out["vertical_datum"] = conversion.vertical_datum
+    out["mhhw_minus_mllw_ft"] = conversion.mhhw_minus_mllw_ft
+    out["datum_source"] = conversion.source
+    out["coops_station_id"] = conversion.coops_station_id
+    out["coops_station_name"] = conversion.coops_station_name
+    out["datum_epoch"] = conversion.datum_epoch
+
+    if conversion.vertical_datum == "MHHW":
+        if conversion.mhhw_minus_mllw_ft is None:
+            raise ValueError("MHHW conversion requested, but mhhw_minus_mllw_ft is missing.")
+
+        for col in columns:
+            if col in out.columns:
+                out[col] = pd.to_numeric(out[col], errors="coerce") - conversion.mhhw_minus_mllw_ft
+
+    return out
+
+
 def safe_tar_member_name(member: tarfile.TarInfo) -> str:
     """Return normalized member name and reject unsafe absolute/path-traversal names."""
     name = member.name.replace("\\", "/")
@@ -553,6 +747,8 @@ def download_and_read_station(
     station_map_path: Path | None,
     refresh_map: bool,
     station_map_builder: Path,
+    datum_lookup_path: Path | None,
+    vertical_datum: str,
     overwrite: bool,
 ) -> tuple[pd.DataFrame, PetssCycle, Path]:
     """Complete workflow: resolve cycle, resolve station, download tarball, extract CSV, read DataFrame."""
@@ -601,7 +797,88 @@ def download_and_read_station(
         station_id=resolved_station_id,
         station_name=resolved_station_name,
     )
+
+    conversion = get_datum_conversion(
+        station_id=resolved_station_id,
+        vertical_datum=vertical_datum,
+        datum_lookup_path=datum_lookup_path,
+    )
+    df = apply_vertical_datum_conversion(df, conversion)
+
+    if conversion.vertical_datum == "MHHW":
+        print(
+            f"Converted TWL/TWL10p/TWL90p from MLLW to MHHW using "
+            f"MHHW-MLLW = {conversion.mhhw_minus_mllw_ft:.2f} ft"
+            + (f" from {conversion.source}" if conversion.source else "")
+        )
+    else:
+        print("Using PETSS water levels as MLLW-referenced values.")
+
     return df, cycle, csv_path
+
+
+
+def clean_station_display_name(station_label: str | None, station_id: str | None = None) -> str:
+    """
+    Remove station IDs and tidy PETSS station labels for customer-facing graphics.
+    """
+    if not station_label:
+        return station_id or "Selected location"
+
+    name = str(station_label)
+
+    # Remove parenthetical station IDs, e.g. "Nome (9468756)".
+    name = re.sub(r"\s*\([A-Za-z0-9]{4,}\)\s*$", "", name)
+
+    # Remove explicit station ID if appended.
+    if station_id:
+        name = name.replace(str(station_id), "")
+
+    # PETSS labels often use all caps or hyphens.
+    name = name.replace("-", " ")
+    name = re.sub(r"\s+", " ", name).strip(" ,")
+
+    # Remove trailing AK for cleaner title.
+    name = re.sub(r",?\s*AK$", "", name, flags=re.IGNORECASE).strip(" ,")
+
+    # Title case, but keep common words readable.
+    return name.title()
+
+
+def safe_filename_part(value: str) -> str:
+    """
+    Create a filesystem-safe filename component from a community/station name.
+    """
+    value = clean_station_display_name(value)
+    value = value.lower()
+    value = re.sub(r"[^a-z0-9]+", "_", value)
+    value = re.sub(r"_+", "_", value).strip("_")
+    return value or "selected_location"
+
+
+def local_time_label(tz_name: str) -> str:
+    """
+    Return a short timezone label for axis/title text.
+    """
+    now_local = pd.Timestamp.now(tz=ZoneInfo(tz_name))
+    return now_local.strftime("%Z") or tz_name
+
+
+def format_local_time(dt, *, include_date: bool = True) -> str:
+    """
+    Cross-platform local time formatter.
+
+    Avoids strftime codes like %-I, which work on Linux/macOS but fail on Windows.
+    """
+    ts = pd.Timestamp(dt)
+
+    if include_date:
+        # Example: Tue Jun 23, 8 PM
+        return f"{ts.strftime('%a %b')} {ts.day}, {ts.strftime('%I').lstrip('0') or '0'} {ts.strftime('%p')}"
+
+    # Example: Tue 8 PM
+    return f"{ts.strftime('%a')} {ts.strftime('%I').lstrip('0') or '0'} {ts.strftime('%p')}"
+
 
 
 def plot_twl(
@@ -609,113 +886,220 @@ def plot_twl(
     output_path: Path,
     station_label: str | None = None,
     title: str | None = None,
-    scenario_low_label: str = "Lower-end scenario",
-    scenario_high_label: str = "Higher-end scenario",
-    main_label: str = "Most likely water level forecast",
+    scenario_low_label: str = "Lower possible outcome",
+    scenario_high_label: str = "Higher possible outcome",
+    main_label: str = "Expected water level",
     show_scenario_lines: bool = True,
+    timezone: str = "America/Anchorage",
+    show_peak_callout: bool = True,
 ) -> Path:
     """
     Customer-facing PETSS total water level forecast graphic.
 
-    This plot intentionally keeps the graphic simple:
-      - Starts at the current model run time.
-      - Plots only forecast total water level information.
-      - Omits tide and observed water level by default.
-      - Uses plain-language scenario labels instead of percentile terminology.
-
-    PETSS CSV detail:
-      TWL, TWL10p, and TWL90p are usually populated only on forecast rows,
-      while OB and TIDE are much denser. We therefore drop NaNs from the
-      forecast columns before plotting.
+    Layout choices are tuned to keep all annotations inside the plotted figure:
+      - local Alaska time on the x-axis
+      - peak callout anchored inside the axes
+      - wrapped disclaimer inside the axes
+      - tighter figure bounds with no large empty whitespace
     """
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
     if "TWL" not in df.columns:
         raise ValueError(f"No TWL column found. Available columns: {list(df.columns)}")
 
+    tz = ZoneInfo(timezone)
+    tz_label = local_time_label(timezone)
+
     plot_df = df.sort_values("valid_time").copy()
     plot_df["valid_time"] = pd.to_datetime(plot_df["valid_time"], utc=True, errors="coerce")
 
-    # Keep only the forecast portion from model initialization onward.
     if "run_time" in plot_df.columns and plot_df["run_time"].notna().any():
-        run_time = pd.to_datetime(plot_df["run_time"].dropna().iloc[0], utc=True)
-        plot_df = plot_df[plot_df["valid_time"] >= run_time].copy()
+        run_time_utc = pd.to_datetime(plot_df["run_time"].dropna().iloc[0], utc=True)
+        plot_df = plot_df[plot_df["valid_time"] >= run_time_utc].copy()
     else:
-        run_time = pd.NaT
+        run_time_utc = pd.NaT
 
-    # TWL forecast values are sparse/hourly. Drop NaNs so matplotlib connects
-    # the actual forecast points rather than breaking on intervening missing rows.
-    twl_df = plot_df.dropna(subset=["valid_time", "TWL"]).copy()
+    plot_df["plot_time"] = plot_df["valid_time"].dt.tz_convert(tz)
+    twl_df = plot_df.dropna(subset=["plot_time", "TWL"]).copy()
 
-    fig, ax = plt.subplots(figsize=(12, 6))
+    # Slightly taller figure to comfortably fit title and note.
+    fig, ax = plt.subplots(figsize=(11, 7.2))
 
-    # Scenario envelope. Keep row-wise min/max because some files may not have
-    # TWL10p/TWL90p ordered the way the labels imply.
+    peak_time = None
+    peak_value = None
+
     pct_available = {"TWL10p", "TWL90p"}.issubset(plot_df.columns)
     if pct_available:
-        pct_df = plot_df.dropna(subset=["valid_time", "TWL10p", "TWL90p"]).copy()
+        pct_df = plot_df.dropna(subset=["plot_time", "TWL10p", "TWL90p"]).copy()
         if not pct_df.empty:
             p10 = pd.to_numeric(pct_df["TWL10p"], errors="coerce")
             p90 = pd.to_numeric(pct_df["TWL90p"], errors="coerce")
             lower = pd.concat([p10, p90], axis=1).min(axis=1)
             upper = pd.concat([p10, p90], axis=1).max(axis=1)
 
+            pct_df = pct_df.assign(_lower=lower, _upper=upper)
+
             ax.fill_between(
-                pct_df["valid_time"],
-                lower,
-                upper,
-                alpha=0.25,
-                label=f"Likely range: {scenario_low_label} to {scenario_high_label}",
+                pct_df["plot_time"],
+                pct_df["_lower"],
+                pct_df["_upper"],
+                alpha=0.22,
+                label="Possible range",
+                zorder=1,
             )
 
             if show_scenario_lines:
                 ax.plot(
-                    pct_df["valid_time"],
-                    lower,
+                    pct_df["plot_time"],
+                    pct_df["_lower"],
                     linewidth=1.5,
                     linestyle="--",
                     label=scenario_low_label,
+                    zorder=2,
                 )
                 ax.plot(
-                    pct_df["valid_time"],
-                    upper,
-                    linewidth=1.5,
+                    pct_df["plot_time"],
+                    pct_df["_upper"],
+                    linewidth=1.8,
                     linestyle="--",
                     label=scenario_high_label,
+                    zorder=2,
                 )
+
+            peak_idx = pct_df["_upper"].idxmax()
+            peak_time = pct_df.loc[peak_idx, "plot_time"]
+            peak_value = float(pct_df.loc[peak_idx, "_upper"])
 
     if not twl_df.empty:
         ax.plot(
-            twl_df["valid_time"],
+            twl_df["plot_time"],
             pd.to_numeric(twl_df["TWL"], errors="coerce"),
             linewidth=3,
             marker="o",
             markersize=2.5,
             label=main_label,
+            zorder=3,
         )
+
+        if peak_time is None:
+            peak_idx = pd.to_numeric(twl_df["TWL"], errors="coerce").idxmax()
+            peak_time = twl_df.loc[peak_idx, "plot_time"]
+            peak_value = float(twl_df.loc[peak_idx, "TWL"])
     else:
         print("Warning: TWL column exists but contains no valid forecast values to plot.")
 
-    label = station_label or str(plot_df["station_id"].iloc[0])
+    station_id = str(plot_df["station_id"].iloc[0]) if "station_id" in plot_df.columns and len(plot_df) else None
+    display_name = clean_station_display_name(station_label, station_id=station_id)
+
+    vertical_datum = "MLLW"
+    if "vertical_datum" in plot_df.columns and plot_df["vertical_datum"].notna().any():
+        vertical_datum = str(plot_df["vertical_datum"].dropna().iloc[0]).upper()
+
     if title is None:
-        if pd.notna(run_time):
-            run_str = pd.Timestamp(run_time).strftime("%Y-%m-%d %HZ")
-            title = f"Total Water Level Forecast for {label} Forecast issued: {run_str}"
+        if pd.notna(run_time_utc):
+            run_time_local = pd.Timestamp(run_time_utc).tz_convert(tz)
+            run_str = format_local_time(run_time_local, include_date=True)
+            title = f"Water Level Forecast for {display_name} Forecast issued: {run_str} {tz_label}"
         else:
-            title = f"Total Water Level Forecast for {label}"
+            title = f"Water Level Forecast for {display_name}"
 
-    ax.set_title(title, fontsize=15, fontweight="bold")
-    ax.set_xlabel("Date and time (UTC)", fontsize=12)
-    ax.set_ylabel("Water level (feet)", fontsize=12)
+    ax.set_title(title, fontsize=19, fontweight="bold", pad=14)
+    ax.set_xlabel(f"Date and time ({tz_label})", fontsize=12)
+
+    if vertical_datum == "MHHW":
+        ax.set_ylabel("Water height above normal high tide (feet)", fontsize=12)
+    else:
+        ax.set_ylabel(f"Water level above {vertical_datum} (feet)", fontsize=12)
+
     ax.grid(True, alpha=0.35)
-    ax.legend(loc="best", frameon=True)
+    ax.legend(loc="upper left", frameon=True, fontsize=10)
     ax.tick_params(axis="both", labelsize=10)
+    ax.margins(x=0.02)
 
-    # Add a short plain-language note without using percentile jargon.
+    if show_peak_callout and peak_time is not None and peak_value is not None:
+        peak_label_time = format_local_time(peak_time, include_date=False)
+
+        # Shorter, wrapped customer-facing callout text
+        callout = (
+            f"Peak higher\n"
+            f"scenario\n"
+            f"{peak_value:.1f} ft above\n"
+            f"normal high tide\n"
+            f"{peak_label_time} {tz_label}"
+        )
+
+        ax.scatter([peak_time], [peak_value], s=55, zorder=5)
+
+        # --- Smarter placement logic ---
+        # Use the peak location relative to the data extent to decide which direction
+        # to offset the label so it stays inside the axes and away from the title.
+        x_min = plot_df["plot_time"].min()
+        x_max = plot_df["plot_time"].max()
+        y_min, y_max = ax.get_ylim()
+
+        x_frac = (peak_time - x_min) / (x_max - x_min) if x_max != x_min else 0.5
+        y_frac = (peak_value - y_min) / (y_max - y_min) if y_max != y_min else 0.5
+
+        # Default quadrant-based offset:
+        #   top-left     -> right/down
+        #   top-right    -> left/down
+        #   bottom-left  -> right/up
+        #   bottom-right -> left/up
+        if x_frac < 0.5:
+            dx = 55
+            ha = "left"
+        else:
+            dx = -55
+            ha = "right"
+
+        if y_frac > 0.7:
+            dy = -18
+            va = "top"
+        else:
+            dy = 18
+            va = "bottom"
+
+        # Extra protection so the callout does not land in the legend area
+        # (upper-left) or get too close to the title.
+        if x_frac < 0.35 and y_frac > 0.60:
+            dx = 70
+            dy = -22
+            ha = "left"
+            va = "top"
+
+        ax.annotate(
+            callout,
+            xy=(peak_time, peak_value),
+            xycoords="data",
+            xytext=(dx, dy),
+            textcoords="offset points",
+            fontsize=9,
+            fontweight="bold",
+            ha=ha,
+            va=va,
+            arrowprops={
+                "arrowstyle": "->",
+                "lw": 1.2,
+                "shrinkA": 4,
+                "shrinkB": 4,
+            },
+            bbox={
+                "boxstyle": "round,pad=0.35",
+                "facecolor": "white",
+                "alpha": 0.94,
+                "edgecolor": "0.35",
+            },
+            annotation_clip=True,
+            zorder=6,
+        )
     note = (
-        "Shaded area shows a reasonable range of outcomes."
+        "Shaded area shows a reasonable range of outcomes. "
         "Actual water levels may fall outside this range."
     )
+    if vertical_datum == "MHHW":
+        note += " Reference: normal high tide (MHHW)."
+
+    note = textwrap.fill(note, width=70)
     ax.text(
         0.01,
         0.02,
@@ -724,12 +1108,13 @@ def plot_twl(
         fontsize=9,
         va="bottom",
         ha="left",
-        bbox={"boxstyle": "round,pad=0.35", "facecolor": "white", "alpha": 0.8, "edgecolor": "0.8"},
+        bbox={"boxstyle": "round,pad=0.35", "facecolor": "white", "alpha": 0.82, "edgecolor": "0.8"},
+        zorder=6,
     )
 
-    fig.autofmt_xdate()
-    fig.tight_layout()
-    fig.savefig(output_path, dpi=150)
+    # Manually set figure bounds so title is not clipped and bottom note has room.
+    fig.subplots_adjust(left=0.11, right=0.98, top=0.88, bottom=0.18)
+    fig.savefig(output_path, dpi=150, bbox_inches="tight")
     plt.close(fig)
     print(f"Wrote plot: {output_path}")
     return output_path
@@ -765,13 +1150,41 @@ def parse_args(argv: Iterable[str] | None = None) -> argparse.Namespace:
         default=Path("build_petss_station_map.py"),
         help="Path to build_petss_station_map.py. Used only with --refresh-station-map.",
     )
+    parser.add_argument(
+        "--datum-lookup",
+        type=Path,
+        help=(
+            "Optional datum CSV. Supports either sites_and_datums.csv master sheet "
+            "with Station ID/MHHW/MLLW columns, or output from build_petss_datum_lookup.py. "
+            "Required when --vertical-datum MHHW is used."
+        ),
+    )
+    parser.add_argument(
+        "--vertical-datum",
+        choices=("MLLW", "MHHW"),
+        default="MHHW",
+        help=(
+            "Vertical datum for plotted forecast water levels. PETSS is assumed "
+            "to start as MLLW. Default: MHHW."
+        ),
+    )
     parser.add_argument("--outdir", type=Path, default=Path("petss_data"), help="Output/cache directory.")
     parser.add_argument("--overwrite", action="store_true", help="Re-download/re-extract existing files.")
     parser.add_argument("--no-plot", action="store_true", help="Only download/extract/read/write cleaned CSV; do not plot.")
-    parser.add_argument("--scenario-low-label", default="Lower-end scenario", help="Plain-language label for the lower scenario line.")
-    parser.add_argument("--scenario-high-label", default="Higher-end scenario", help="Plain-language label for the higher scenario line.")
-    parser.add_argument("--main-label", default="Most likely water level forecast", help="Plain-language label for the TWL forecast line.")
+    parser.add_argument("--scenario-low-label", default="Lower possible outcome", help="Plain-language label for the lower scenario line.")
+    parser.add_argument("--scenario-high-label", default="Higher possible outcome", help="Plain-language label for the higher scenario line.")
+    parser.add_argument("--main-label", default="Expected water level", help="Plain-language label for the TWL forecast line.")
     parser.add_argument("--hide-scenario-lines", action="store_true", help="Show only the shaded scenario range and main TWL line.")
+    parser.add_argument(
+        "--timezone",
+        default="America/Anchorage",
+        help="IANA timezone used for the x-axis and forecast-issued time. Default: America/Anchorage.",
+    )
+    parser.add_argument(
+        "--no-peak-callout",
+        action="store_true",
+        help="Disable the peak higher-scenario callout box.",
+    )
 
     return parser.parse_args(argv)
 
@@ -790,6 +1203,8 @@ def main(argv: Iterable[str] | None = None) -> int:
             station_map_path=args.station_map,
             refresh_map=args.refresh_station_map,
             station_map_builder=args.station_map_builder,
+            datum_lookup_path=args.datum_lookup,
+            vertical_datum=args.vertical_datum,
             overwrite=args.overwrite,
         )
 
@@ -797,14 +1212,16 @@ def main(argv: Iterable[str] | None = None) -> int:
         products_dir = args.outdir / "products" / cycle.date / f"t{cycle.cycle}z"
         products_dir.mkdir(parents=True, exist_ok=True)
 
-        cleaned_path = products_dir / f"petss_{cycle.date}_t{cycle.cycle}z_{station_id}_clean.csv"
+        datum_label = str(df["vertical_datum"].iloc[0]).lower() if "vertical_datum" in df.columns else "mllw"
+        cleaned_path = products_dir / f"petss_{cycle.date}_t{cycle.cycle}z_{station_id}_{datum_label}_clean.csv"
         df.to_csv(cleaned_path, index=False)
         print(f"Wrote cleaned CSV: {cleaned_path}")
 
         if not args.no_plot:
             station_name = df["station_name"].iloc[0]
-            station_label = f"{station_name} ({station_id})" if isinstance(station_name, str) and station_name else station_id
-            plot_path = products_dir / f"petss_{cycle.date}_t{cycle.cycle}z_{station_id}_twl.png"
+            station_label = clean_station_display_name(station_name, station_id=station_id) if isinstance(station_name, str) and station_name else station_id
+            location_part = safe_filename_part(station_label)
+            plot_path = products_dir / f"petss_{cycle.date}_t{cycle.cycle}z_{location_part}_{datum_label}_twl.png"
             plot_twl(
                 df,
                 plot_path,
@@ -813,6 +1230,8 @@ def main(argv: Iterable[str] | None = None) -> int:
                 scenario_high_label=args.scenario_high_label,
                 main_label=args.main_label,
                 show_scenario_lines=not args.hide_scenario_lines,
+                timezone=args.timezone,
+                show_peak_callout=not args.no_peak_callout,
             )
 
         print("\nDataFrame preview:")
