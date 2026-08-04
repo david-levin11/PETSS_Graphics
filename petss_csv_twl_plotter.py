@@ -578,8 +578,15 @@ def get_datum_conversion(
 
     if datum_lookup_path is None:
         raise ValueError(
-            "--vertical-datum MHHW requires --datum-lookup pointing to a CSV "
-            "created by build_petss_datum_lookup.py."
+            "--vertical-datum MHHW requires a datum lookup CSV. "
+            "Pass --datum-lookup petss_station_datums.csv or use --vertical-datum MLLW."
+        )
+
+    if not datum_lookup_path.exists():
+        raise FileNotFoundError(
+            f"Datum lookup file not found: {datum_lookup_path}. "
+            "Place petss_station_datums.csv in the working folder, pass the full path with "
+            "--datum-lookup, or use --vertical-datum MLLW."
         )
 
     lookup = load_datum_lookup(datum_lookup_path)
@@ -1153,10 +1160,11 @@ def parse_args(argv: Iterable[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--datum-lookup",
         type=Path,
+        default=Path("petss_station_datums.csv"),
         help=(
-            "Optional datum CSV. Supports either sites_and_datums.csv master sheet "
-            "with Station ID/MHHW/MLLW columns, or output from build_petss_datum_lookup.py. "
-            "Required when --vertical-datum MHHW is used."
+            "Datum CSV used for MHHW conversion. Defaults to petss_station_datums.csv "
+            "in the working folder. Supports either sites_and_datums.csv master sheet "
+            "with Station ID/MHHW/MLLW columns, or output from build_petss_datum_lookup.py."
         ),
     )
     parser.add_argument(

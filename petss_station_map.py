@@ -8,7 +8,7 @@ Import into your PETSS plotting config with:
     from petss_station_map import DEFAULT_STATION_MAP, AMBIGUOUS_STATION_MAP
 
 Sources:
-    - https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt
+    - https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt
 """
 
 DEFAULT_STATION_MAP = {
@@ -154,10 +154,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9462450",
         "station_name": "NIKOLSKI, AK"
@@ -170,10 +170,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9462620",
         "station_name": "UNALASKA, AK"
@@ -186,10 +186,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9463502",
         "station_name": "PORT MOLLER, AK"
@@ -203,10 +203,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9464212",
         "station_name": "VILLAGE COVE, AK"
@@ -220,10 +220,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9465056",
         "station_name": "Ptect-P-Nushagak-Bay-AK"
@@ -236,10 +236,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9465203",
         "station_name": "NAKNEK, AK"
@@ -252,10 +252,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9465261",
         "station_name": "CLARKS PT NUSHAGAK, AK"
@@ -268,10 +268,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9465374",
         "station_name": "DILLINGHAM, AK"
@@ -284,10 +284,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9465396",
         "station_name": "Platinum-AK"
@@ -300,10 +300,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9465831",
         "station_name": "Quinhagak-AK"
@@ -316,10 +316,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9465911",
         "station_name": "KWIGILLINGOK, AK"
@@ -332,10 +332,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9465951",
         "station_name": "KIPNUK, AK"
@@ -349,10 +349,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9465953",
         "station_name": "Kinak-Bay-AK"
@@ -366,10 +366,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9466012",
         "station_name": "E-Nunivak-Island-AK"
@@ -383,10 +383,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9466079",
         "station_name": "APOKAK CREEK ENT, AK"
@@ -399,10 +399,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9466217",
         "station_name": "Mekoryuk-AK"
@@ -418,10 +418,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9466298",
         "station_name": "Tooksook-Nelson-AK"
@@ -435,10 +435,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9466931",
         "station_name": "Hooper-Bay-AK"
@@ -451,10 +451,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9467551",
         "station_name": "Nunam-Iqua-AK"
@@ -468,10 +468,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9468039",
         "station_name": "NE-Cape-Lawrence-I-AK"
@@ -485,10 +485,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9468132",
         "station_name": "ST. MICHAEL NORTON SD,AK"
@@ -501,10 +501,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9468258",
         "station_name": "Savoonga-AK"
@@ -517,10 +517,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9468333",
         "station_name": "UNALAKLEET, AK"
@@ -533,10 +533,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9468691",
         "station_name": "SHAKTOOLIK, AK"
@@ -550,10 +550,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9468756",
         "station_name": "NOME NORTON SOUND, AK"
@@ -566,10 +566,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9469237",
         "station_name": "Spencer-Pt-Clarence-AK"
@@ -583,10 +583,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9469338",
         "station_name": "Lost-River-AK"
@@ -599,10 +599,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9469439",
         "station_name": "Tin-City-AK"
@@ -615,10 +615,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9469515",
         "station_name": "Wales-AK"
@@ -631,10 +631,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9469751",
         "station_name": "DEERING, AK"
@@ -650,10 +650,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9469833",
         "station_name": "Goodhope-Bay-AK"
@@ -666,10 +666,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9469854",
         "station_name": "SHISHMAREF INLET2, AK"
@@ -683,10 +683,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9490096",
         "station_name": "Cape-Espenberg-AK"
@@ -699,10 +699,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9490424",
         "station_name": "KOTZEBUE, AK"
@@ -716,10 +716,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9490571",
         "station_name": "Cape-Krusenstern-AK"
@@ -733,10 +733,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9491094",
         "station_name": "RED DOG DOCK, AK"
@@ -749,10 +749,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9491253",
         "station_name": "KIVALINA, AK"
@@ -765,10 +765,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9491873",
         "station_name": "Point-Hope-AK"
@@ -782,10 +782,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9497645",
         "station_name": "PRUDHOE BAY, AK"
@@ -798,10 +798,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "9499176",
         "station_name": "Kaktovik-AK"
@@ -816,10 +816,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0001",
         "station_name": "POINT BARROW, AK"
@@ -833,10 +833,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0002",
         "station_name": "PORT CLARENCE, AK"
@@ -850,10 +850,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0003",
         "station_name": "CAROLYN GOLOVNIN BAY, AK"
@@ -867,10 +867,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0004",
         "station_name": "APOON MOUTH YUKON RV,AK"
@@ -884,10 +884,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0005",
         "station_name": "KAWANAK PASS YUKON,AK"
@@ -901,10 +901,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0006",
         "station_name": "KWIKLUAK PAS YUKON R, AK"
@@ -918,10 +918,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0007",
         "station_name": "CAPE ROMANZOF, AK"
@@ -937,10 +937,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0008",
         "station_name": "ST. LRNCE NIYRAKPAK, AK"
@@ -953,10 +953,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0010",
         "station_name": "POPOKAMUTE, AK"
@@ -970,10 +970,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0011",
         "station_name": "KUSKOKWAK CREEK ENT, AK"
@@ -987,10 +987,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0012",
         "station_name": "EEK CHANNEL QUINHAGA, AK"
@@ -1004,10 +1004,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0013",
         "station_name": "GOODNEWS BAY ENT, AK"
@@ -1021,10 +1021,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0014",
         "station_name": "NAKNEK RIVER ENT#13, AK"
@@ -1038,10 +1038,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0015",
         "station_name": "EGEGIK RIVER ENT, AK"
@@ -1054,10 +1054,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0016",
         "station_name": "PORT HEIDEN, AK"
@@ -1070,10 +1070,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0017",
         "station_name": "Togiak-Ak"
@@ -1086,10 +1086,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0018",
         "station_name": "Kipnuk-Ak"
@@ -1102,10 +1102,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0019",
         "station_name": "Port-Heiden-AK"
@@ -1118,10 +1118,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0020",
         "station_name": "Akutan-AK"
@@ -1135,10 +1135,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0021",
         "station_name": "Cape-Lisburne-Ak"
@@ -1152,10 +1152,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0022",
         "station_name": "Cold-Bay-AK"
@@ -1168,10 +1168,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0023",
         "station_name": "Diomede-AK"
@@ -1184,10 +1184,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0024",
         "station_name": "Elim-Ak"
@@ -1201,10 +1201,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0025",
         "station_name": "False-Pass-AK"
@@ -1217,10 +1217,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0026",
         "station_name": "Kongiganak-AK"
@@ -1233,10 +1233,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0027",
         "station_name": "Koyuk-AK"
@@ -1249,10 +1249,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0030",
         "station_name": "Newtok-AK"
@@ -1265,10 +1265,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0031",
         "station_name": "Paimiut-AK"
@@ -1281,10 +1281,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0032",
         "station_name": "Pilot-Point-AK"
@@ -1297,10 +1297,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0033",
         "station_name": "Point-Lay-AK"
@@ -1313,10 +1313,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0034",
         "station_name": "Saint-George-AK"
@@ -1330,10 +1330,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0035",
         "station_name": "Scammon-Bay-AK"
@@ -1346,10 +1346,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0036",
         "station_name": "Solomon-AK"
@@ -1362,10 +1362,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0037",
         "station_name": "Stebbins-AK"
@@ -1378,10 +1378,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0038",
         "station_name": "Togiak-AK"
@@ -1394,10 +1394,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0039",
         "station_name": "Tununak-AK"
@@ -1410,10 +1410,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0040",
         "station_name": "Wainwright-AK"
@@ -1426,10 +1426,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber0041",
         "station_name": "Oliktok-AK"
@@ -1442,10 +1442,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber2307",
         "station_name": "TUNUNAK, AK"
@@ -1458,10 +1458,10 @@ STATION_METADATA = {
             "nwak"
         ],
         "source_files": [
-            "petss_station_map_cache\\petss.20260622.t12z.mean.stormtide.nwak.txt"
+            "petss_station_map_cache\\petss.20260803.t12z.mean.stormtide.nwak.txt"
         ],
         "source_urls": [
-            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260622/petss.t12z.mean.stormtide.nwak.txt"
+            "https://nomads.ncep.noaa.gov/pub/data/nccf/com/petss/prod/petss.20260803/petss.t12z.mean.stormtide.nwak.txt"
         ],
         "station_id": "ber2308",
         "station_name": "NELSON LAGOON, AK"
